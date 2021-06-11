@@ -2,7 +2,7 @@
 
 echo Creating Ubuntu chroot environment
 
-cd ~/
+cd /
 
 sudo mkdir ubuntu-fs
 
@@ -20,26 +20,30 @@ sudo rm -rf $HIRSUTE
 
 echo Writing launch script
 
-sudo rm -rf ~/ubuntu-fs/etc/resolv.conf
+sudo rm -rf /ubuntu-fs/etc/resolv.conf
 
-sudo cp /etc/resolv.conf ~/ubuntu-fs/etc
+sudo cp /etc/resolv.conf /ubuntu-fs/etc
 
-cd ~/
+cd /
 
 sudo touch startubuntu.sh
 
-echo sudo mount -t proc /proc ~/ubuntu-fs/proc >> ~/startubuntu.sh
+echo sudo mount -t proc /proc /ubuntu-fs/proc >> /startubuntu.sh
 
-echo sudo mount -o bind /sys ~/ubuntu-fs/sys >> ~/startubuntu.sh
+echo sudo mount -o bind /sys /ubuntu-fs/sys >> /startubuntu.sh
 
-echo sudo mount -o bind /dev ~/ubuntu-fs/dev >> ~/startubuntu.sh
+echo sudo mount -o bind /dev /ubuntu-fs/dev >> /startubuntu.sh
 
-echo sudo mount --make-rslave ~/ubuntu-fs/sys >> ~/startubuntu.sh
+echo sudo mount --make-rslave /ubuntu-fs/sys >> /startubuntu.sh
 
-echo sudo mount --make-rslave ~/ubuntu-fs/dev >> ~/startubuntu.sh
+echo sudo mount --make-rslave /ubuntu-fs/dev >> /startubuntu.sh
 
-echo sudo chroot ~/ubuntu-fs >> ~/startubuntu.sh
+echo sudo chroot /ubuntu-fs >> /startubuntu.sh
+
+sudo cp startubuntu.sh startubuntu
+
+sudo cp startubuntu /bin
 
 
 
-echo Finished. Start Ubuntu Chroot with sudo bash ub.sh
+echo Finished. Start Ubuntu Chroot with startubuntu
