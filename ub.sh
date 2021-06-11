@@ -14,6 +14,10 @@ tar -xzf $FOCAL
 
 echo Writing launch script
 
+rm -rf ~/ubuntu-fs/etc/resolv.conf
+
+cp /etc/resolv.conf ~/ubuntu-fs/etc
+
 cd ~/
 
 touch startubuntu.sh
