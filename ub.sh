@@ -1,38 +1,44 @@
 #!/bin/bash
 
+echo Creating Ubuntu chroot environment
+
 cd ~/
 
-mkdir ubuntu-fs
+sudo mkdir ubuntu-fs
+
+ARCHITECTURE=$(dpkg --print-architecture)
 
 cd ubuntu-fs
 
-wget http://cdimage.ubuntu.com/ubuntu-base/releases/21.04/release/ubuntu-base-21.04-base-riscv64.tar.gz
+sudo wget http://cdimage.ubuntu.com/ubuntu-base/releases/21.04/release/ubuntu-base-21.04-base-$ARCHITECTURE.tar.gz
 
-FOCAL=ubuntu-base-20.04.1-base-riscv64.tar.gz
+HIRSUTE=ubuntu-base-21.04-base-$ARCHITECTURE.tar.gz
 
-tar -xzf $FOCAL
+sudo tar -xzf $HIRSUTE
+
+sudo rm -rf $HIRSUTE
 
 echo Writing launch script
 
-rm -rf ~/ubuntu-fs/etc/resolv.conf
+sudo rm -rf ~/ubuntu-fs/etc/resolv.conf
 
-cp /etc/resolv.conf ~/ubuntu-fs/etc
+sudo cp /etc/resolv.conf ~/ubuntu-fs/etc
 
 cd ~/
 
-touch startubuntu.sh
+sudo touch startubuntu.sh
 
-echo mount -t proc /proc ~/ubuntu-fs/proc >> ~/startubuntu.sh
+echo sudo mount -t proc /proc ~/ubuntu-fs/proc >> ~/startubuntu.sh
 
-echo mount -o bind /sys ~/ubuntu-fs/sys >> ~/startubuntu.sh
+echo sudo mount -o bind /sys ~/ubuntu-fs/sys >> ~/startubuntu.sh
 
-echo mount -o bind /dev ~/ubuntu-fs/dev >> ~/startubuntu.sh
+echo sudo mount -o bind /dev ~/ubuntu-fs/dev >> ~/startubuntu.sh
 
-echo mount --make-rslave ~/ubuntu-fs/sys >> ~/startubuntu.sh
+echo sudo mount --make-rslave ~/ubuntu-fs/sys >> ~/startubuntu.sh
 
-echo mount --make-rslave ~/ubuntu-fs/dev >> ~/startubuntu.sh
+echo sudo mount --make-rslave ~/ubuntu-fs/dev >> ~/startubuntu.sh
 
-echo chroot ~/ubuntu-fs >> ~/startubuntu.sh
+echo sudo chroot ~/ubuntu-fs >> ~/startubuntu.sh
 
 
 
