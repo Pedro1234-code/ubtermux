@@ -26,24 +26,10 @@ sudo cp /etc/resolv.conf /ubuntu-fs/etc
 
 cd /
 
-sudo touch startubuntu.sh
+sudo wget https://raw.githubusercontent.com/Pedro1234-code/ubuntu-chroot/main/launch.sh
 
-echo sudo mount -t proc /proc /ubuntu-fs/proc >> /startubuntu.sh
+sudo cp launch.sh startubuntu
 
-echo sudo mount -o bind /sys /ubuntu-fs/sys >> /startubuntu.sh
-
-echo sudo mount -o bind /dev /ubuntu-fs/dev >> /startubuntu.sh
-
-echo sudo mount --make-rslave /ubuntu-fs/sys >> /startubuntu.sh
-
-echo sudo mount --make-rslave /ubuntu-fs/dev >> /startubuntu.sh
-
-echo sudo chroot /ubuntu-fs >> /startubuntu.sh
-
-sudo cp startubuntu.sh startubuntu
-
-sudo cp startubuntu /bin
-
-
+sudo cp startubuntu /usr/bin
 
 echo Finished. Start Ubuntu Chroot with startubuntu
