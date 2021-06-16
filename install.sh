@@ -30,6 +30,8 @@ sudo wget https://raw.githubusercontent.com/Pedro1234-code/ubuntu-chroot/main/la
 
 sudo touch startubuntu
 
+echo #!/bin/bash >> startubuntu
+
 echo sudo bash /launch.sh >> /startubuntu
 
 sudo cp startubuntu /usr/bin
