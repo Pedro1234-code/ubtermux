@@ -28,7 +28,9 @@ cd /
 
 sudo wget https://raw.githubusercontent.com/Pedro1234-code/ubuntu-chroot/main/launch.sh
 
-sudo cp launch.sh startubuntu
+sudo touch startubuntu
+
+echo sudo bash /launch.sh >> /startubuntu
 
 sudo cp startubuntu /usr/bin
 
