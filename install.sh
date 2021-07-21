@@ -32,10 +32,12 @@ sudo touch startubuntu
 
 echo #!/bin/bash >> startubuntu
 
-echo sudo bash /launch.sh >> /startubuntu
+echo sudo bash /launch.sh > /startubuntu
 
 sudo cp launch.sh /home/
 
 sudo cp startubuntu /usr/bin
 
-echo Finished. Start Ubuntu Chroot with sudo bash /home/launch.sh
+sudo chmod +x /usr/bin/startubuntu
+
+echo Finished. Start Ubuntu Chroot with sudo startubuntu
