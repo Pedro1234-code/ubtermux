@@ -10,13 +10,16 @@ ARCHITECTURE=$(dpkg --print-architecture)
 
 cd ubuntu-fs
 
-sudo wget http://cdimage.ubuntu.com/ubuntu-base/releases/21.04/release/ubuntu-base-21.04-base-$ARCHITECTURE.tar.gz
+# Change the Ubuntu version here. Default is 20.04 Focal Fossa
+ubuntu_version=20.04
 
-HIRSUTE=ubuntu-base-21.04-base-$ARCHITECTURE.tar.gz
+sudo wget http://cdimage.ubuntu.com/ubuntu-base/releases/$ubuntu_version/release/ubuntu-base-$ubuntu_version-base-$ARCHITECTURE.tar.gz
 
-sudo tar -xzf $HIRSUTE
+ubuntu=ubuntu-base-$ubuntu_version-base-$ARCHITECTURE.tar.gz
 
-sudo rm -rf $HIRSUTE
+sudo tar -xzf $ubuntu
+
+sudo rm -rf $ubuntu
 
 echo Writing launch script
 
