@@ -43,4 +43,14 @@ sudo cp startubuntu /usr/bin
 
 sudo chmod +x /usr/bin/startubuntu
 
+echo Installing things inside Ubuntu Chroot
+
+sudo chroot /ubuntu-fs/ apt update
+
+sudo chroot /ubuntu-fs/ apt update
+
+sudo chroot /ubuntu-fs/ apt upgrade -y
+
+sudo chroot /ubuntu-fs/ apt install nano vim sudo python wget ubuntu-release-upgrader-core -y
+
 echo Finished. Start Ubuntu Chroot with sudo startubuntu
