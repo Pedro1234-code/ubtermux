@@ -57,6 +57,6 @@ proot -r /ubuntu-fs -0 -w / -b /dev -b /proc -b /sys apt update
 
 proot -r /ubuntu-fs -0 -w / -b /dev -b /proc -b /sys apt upgrade -y
 
-proot -r /ubuntu-fs -0 -w / -b /dev -b /proc -b /sys apt install nano vim sudo python wget ubuntu-release-upgrader-core -y
+proot -r /ubuntu-fs -0 -w / -b /dev -b /proc -b /sys apt install nano vim sudo python wget gnupg apt-utils ubuntu-release-upgrader-core -y
 
 echo Finished. Start Ubuntu Chroot with sudo startubuntu
