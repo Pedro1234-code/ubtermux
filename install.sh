@@ -17,11 +17,11 @@ ARCHITECTURE=$(dpkg --print-architecture)
 cd ubuntu-fs
 
 # Change the Ubuntu version here. This script does not support installation of Ubuntu versions launched before 2016 LTS. To install Ubuntu 16.04, put 16.04.6, not only 16.04. To install 18.04, put 18.04.5.
-ubuntu_version=16.04.6
+ubuntu_version=focal
 
-sudo wget http://cdimage.ubuntu.com/ubuntu-base/releases/$ubuntu_version/release/ubuntu-base-$ubuntu_version-base-$ARCHITECTURE.tar.gz
+sudo wget https://cloud-images.ubuntu.com/focal/current/focal-server-cloudimg-$ARCHITECTURE-wsl.rootfs.tar.gz
 
-ubuntu=ubuntu-base-$ubuntu_version-base-$ARCHITECTURE.tar.gz
+ubuntu=focal-server-cloudimg-$ARCHITECTURE-wsl.rootfs.tar.gz
 
 sudo tar -xzf $ubuntu
 
