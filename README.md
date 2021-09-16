@@ -14,11 +14,11 @@ $ sudo mount /dev/sda1 /mnt
 
 Now, mount your /dev, /proc and /sys to the chroot folder.
 
-$ sudo mount -t proc /proc /ubuntu-fs/proc
+$ sudo mount -t proc /proc /mnt/proc
 
-$ sudo mount -o bind /sys /ubuntu-fs/sys
+$ sudo mount -o bind /sys /mnt/sys
 
-$ sudo mount -o bind /dev /ubuntu-fs/dev
+$ sudo mount -o bind /dev /mnt/dev
 
 Now, you are good to go.
 
